@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load the image
-image = cv2.imread('../boden.jpg')
+image = cv2.imread('../input/boden.jpg')
 width = 502
 height = 743
 # Specify the coordinates of the four corners of the trapezoid
@@ -19,9 +19,4 @@ M = cv2.getPerspectiveTransform(src_pts, dst_pts)
 
 # Apply the perspective transformation
 transformed = cv2.warpPerspective(image, M, (width, height))
-
-# Display the original and transformed images
-cv2.imshow('Original', image)
-cv2.imshow('Transformed', transformed)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.imwrite('../output/wrappedimage.png',transformed)
