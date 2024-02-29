@@ -25,3 +25,6 @@ def transform_img_to_rectangle(width, height, source_points, destination_pts):
     # Apply the perspective transformation
     transformed = cv2.warpPerspective(image, M, (width, height))
     cv2.imwrite('../output/wrappedimage.png',transformed)
+    
+def px_to_cm(x,y):
+    np.array([x/4,y/4])
