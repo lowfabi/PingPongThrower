@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-INPUT_PATH = '../src/bodennew.png'
+INPUT_PATH = '../input/boden.jpg'
 
 def transform_img_to_rectangle(width, height, source_points, destination_pts):
     """
@@ -39,7 +39,7 @@ def detect_rectangle_edges():
 
     # Apply Gaussian blur
     blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-    
+
     # Edge detection
     edges = cv2.Canny(blurred, 50, 150)
 
@@ -47,7 +47,6 @@ def detect_rectangle_edges():
     contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     # Iterate through contours and approximate them
-    all_corners = []
     for contour in contours:
         # Approximate the contour
         perimeter = cv2.arcLength(contour, True)
@@ -63,9 +62,5 @@ def detect_rectangle_edges():
             cv2.drawContours(image, [approximation], -1, (0, 255, 0), 3)
             cv2.imshow('Rectangle Detected', image)
             cv2.waitKey(0)
-            #print(all_corners)
-            #cv2.imwrite('../output/line.png',image)
-            all_corners.append(corners)
-            
+            break
             return corners
-#top-left, top-right, bottom-right, bottom-left
