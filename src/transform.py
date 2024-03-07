@@ -13,7 +13,7 @@ def transform_img_to_rectangle(width, height, source_points, destination_pts):
     """
 
     INPUT_PATH = '../input/boden.jpg'
-    image = cv2.imread('../src/4.png')
+    image = cv2.imread('../src/bodennew.png')
     
     if image is None:
         print(f"Error: Could not load image from {INPUT_PATH}")
@@ -24,7 +24,7 @@ def transform_img_to_rectangle(width, height, source_points, destination_pts):
 
     # Apply the perspective transformation
     transformed = cv2.warpPerspective(image, M, (width, height))
-    cv2.imwrite('../output/wrappedimage4.png',transformed)
+    cv2.imwrite('../output/wrappedimage5.png',transformed)
     
 def px_to_cm(x,y):
     np.array([x/4,y/4])
