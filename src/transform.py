@@ -25,7 +25,7 @@ def transform_img_to_rectangle(width, height, source_points, destination_pts):
 
     # Apply the perspective transformation
     transformed = cv2.warpPerspective(image, M, (width, height))
-    cv2.imwrite('../output/wrappedimage5.png',transformed)
+    cv2.imwrite('../output/wrappedimage6.png',transformed)
     
 def px_to_cm(x,y):
     np.array([x/4,y/4])
@@ -59,8 +59,8 @@ def detect_rectangle_edges():
             print("Rectangle corners:", corners)
             
             # Optional: draw the rectangle on the image
-            cv2.drawContours(image, [approximation], -1, (0, 255, 0), 3)
-            cv2.imshow('Rectangle Detected', image)
-            cv2.waitKey(0)
-            break
+            #cv2.drawContours(image, [approximation], -1, (0, 255, 0), 3)
+            #cv2.imshow('Rectangle Detected', image)
+            #cv2.waitKey(0)
+            #break
             return corners
